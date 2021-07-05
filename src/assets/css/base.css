@@ -1,0 +1,18 @@
+@import "./normalize.css";
+
+/* :root -> 获取根元素html
+    --color-text: 这里只是在css文件里面定义的变量，可以在其他地方使用
+*/
+:root {
+  --color-text: #666;
+  --color-high-text: #ff5777;
+  --color-tint: #ff8198;
+  --color-background: #fff;
+  --font-szie: 14px;
+  --line-height: 1.5;
+}
+
+body {
+  /* 使用在 :root 中定义的变量 */
+  background-color: var(--color-background)
+}
