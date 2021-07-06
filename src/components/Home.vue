@@ -129,7 +129,7 @@ export default {
   name: "Home",
   data() {
     return {
-      userInfo: JSON.parse(sessionStorage.getItem('userInfo'))
+      userInfo: []
     }
   },
   methods: {
@@ -150,11 +150,12 @@ export default {
       this.$router.push(url)
     }
   },
-  created() {
+  beforeCreate() {
     api.getOperatorInfo({
       url: '/cms/web/operator/getOperatorInfo',
     }).then(result => {
       sessionStorage.setItem('userInfo', JSON.stringify(result.data))
+      this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
     })
   }
 }

@@ -32,13 +32,25 @@ export default {
 
 
   /* 热门词相关 */
+  // 获取App热搜词列表
   getHotWordList(data) {
     return request({
       url: '/cms/web/word/getHotWordList',
       method: 'POST',
-      data: DataToFormData
+      data: DataToFormData(data)
+    })
+  },
+
+  // 获取推荐热门词
+  getHotFeedWord(data) {
+    return request({
+      url: '/cms/web/word/getHotFeedWord',
+      method: 'POST',
+      data: DataToFormData(data)
     })
   }
+
+
 
 
 

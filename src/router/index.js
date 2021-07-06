@@ -5,6 +5,11 @@ const Login = () => import('components/Login')
 const Home = () => import('components/Home')
 const HotWords = () => import('components/hotword/HotWords')
 
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 Vue.use(Router)
 
 const router = new Router({
